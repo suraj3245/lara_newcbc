@@ -24,8 +24,8 @@ class StudentsAndTestResultsImport implements ToModel, WithHeadingRow
             // Validate the student data
             $validator = Validator::make($row, [
                 'name' => 'required|string',
-                'email' => 'required|email|unique:students,email',
-                'mobile' => 'required|numeric',
+                'email' => 'nullable|email|unique:students,email',
+                'mobile' => 'nullable|numeric',
                 'class' => 'nullable',
                 'place' => 'nullable',
                 // Add more validation rules as needed
