@@ -26,6 +26,7 @@ class StudentsAndTestResultsImport implements ToModel, WithHeadingRow
                 'name' => 'required|string',
                 'email' => 'required|email|unique:students,email',
                 'mobile' => 'required|numeric',
+                'class' => 'nullable',
                 'place' => 'nullable',
                 // Add more validation rules as needed
             ]);
@@ -44,6 +45,7 @@ class StudentsAndTestResultsImport implements ToModel, WithHeadingRow
                 'name' => $row['name'],
                 'email' => $row['email'],
                 'mobile' => $row['mobile'],
+                'class' => $row['class'],
                 'from' => $row['place'],
                 // Add more fields as needed
             ]);

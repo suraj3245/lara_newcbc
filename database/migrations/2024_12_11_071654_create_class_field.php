@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->nullable()->unique();
-            $table->string('password')->nullable();
-            $table->timestamps();
+        Schema::table('students', function (Blueprint $table) {
+            $table->string('class')->nullable()->after('mobile'); // Add 'class' field after 'from'
         });
     }
 

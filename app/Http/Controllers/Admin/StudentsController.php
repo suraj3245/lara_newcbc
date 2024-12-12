@@ -45,8 +45,9 @@ class StudentsController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
-            'email' => 'required|email|unique:students,email',
-            'mobile' => 'required|string',
+            'email' => 'nullable|email|unique:students,email',
+            'mobile' => 'nullable|string',
+            'class' => 'nullable',
             'from' => 'nullable|string',
             'realistic_score' => 'required|integer',
             'investigative_score' => 'required|integer',
@@ -67,6 +68,7 @@ class StudentsController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'mobile' => $request->mobile,
+                'class' => $request->class,
                 'from' => $request->from,
             ]);
             $student->save();
@@ -144,6 +146,7 @@ class StudentsController extends Controller
             'name' => 'required|string',
             'email' => 'required|email',
             'mobile' => 'required|string',
+            'class' => 'required|integer',
             'from' => 'nullable|string',
             'realistic_score' => 'required|integer',
             'investigative_score' => 'required|integer',
@@ -166,6 +169,7 @@ class StudentsController extends Controller
                 'name' => $request->input('name'),
                 'email' => $request->input('email'),
                 'mobile' => $request->input('mobile'),
+                'class' => $request->input('class'),
                 'from' => $request->input('from'),
             ]);
 
