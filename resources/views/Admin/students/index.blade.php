@@ -228,7 +228,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body border-bottom">
-                                <h3 class="card-title">Student Test Result </h3>
+                                <h3 class="card-title">Student Test Result</h3>
                             </div>
 
 
@@ -243,6 +243,7 @@
                                         <th class="text-center">Name</th>
                                         <th class="text-center">Email</th>
                                         <th class="text-center">Mobile</th>
+                                        <th class="text-center">Class</th>
                                         <th class="text-center">Place</th>
 
                                         <th class="text-center">Realistic Score</th>
@@ -264,19 +265,21 @@
                                     </thead>
                                     <tbody>
                                         <?php $count = ($students->currentPage() - 1) * $students->perPage() + 1; ?>
+
                                         @foreach ($students as $student)
                                         <tr class="text-center">
                                             <td>{{ $count++ }}</td>
                                             <td>{{ $student->name }}</td>
-
-                                            <td>{{ $student->email }}</td>
+                                            <td>{{ $student->email ? $student->email : 'N/A'}}</td>
                                             <td>
-                                                {{ $student->mobile }}
+                                                {{ $student->mobile ? $student->mobile : 'N/A' }}
+                                            </td>
+                                            <td>
+                                                {{ $student->class ? $student->class : 'N/A'}}
                                             </td>
                                             <td>
                                                 {{ $student->from }}
                                             </td>
-
                                             <td>{{ $student->careerTestResult->realistic_score ?? 'N/A' }}</td>
                                             <td>{{ $student->careerTestResult->investigative_score ?? 'N/A' }}
                                             </td>
@@ -310,15 +313,10 @@
                                                 <form action="{{ route('students.destroy', $student->id) }}" method="post">
                                                     @method('DELETE')
                                                     @csrf
-                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('{{ __('Are you sure you want to delete?') }}')">
+                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('{{ __(`Are you sure you want to delete?`) }}')">
                                                         <i class="ti ti-trash"></i>
                                                 </form>
-
                                             </td>
-
-
-
-
                                         </tr>
                                         @endforeach
 

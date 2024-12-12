@@ -64,24 +64,32 @@
 
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <div class="mb-3">
-                                                <label class="form-label req">Email</label>
-                                                <input type="email" name="email" class="form-control" placeholder="Email" autocomplete="off" required>
-                                                @error('email')
-                                                <div class="alert alert-danger">{{ $message }}</div>
-                                                @enderror
+                                                <label class="form-label">Email</label>
+                                                <input type="email" name="email" class="form-control" placeholder="Email" autocomplete="off">
                                             </div>
                                         </div>
 
 
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <div class="mb-3">
-                                                <label class="form-label req">Mobile</label>
-                                                <input type="tel" name="mobile" class="form-control" placeholder="Mobile" autocomplete="off" required>
-                                                @error('mobile')
+                                                <label class="form-label">Mobile</label>
+                                                <input type="tel" name="mobile" class="form-control" placeholder="Mobile" autocomplete="off">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-4 col-sm-12">
+                                            <div class="mb-3">
+                                                <label class="form-label req">Class</label>
+                                                <select name="class" class="form-select" required>
+                                                    <option value="">Select Class</option>
+                                                    <option value="10th">10th</option>
+                                                    <option value="11th">11th</option>
+                                                    <option value="12th">12th</option>
+                                                </select>
+                                                @error('class')
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
-                                        </div>
+                                        </div>,
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <div class="mb-3">
                                                 <label class="form-label req">Place</label>
@@ -91,6 +99,7 @@
                                                 @enderror
                                             </div>
                                         </div>
+                                      
 
 
                                         <div class="col-lg-6 col-md-6 col-sm-12">

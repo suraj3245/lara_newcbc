@@ -186,6 +186,7 @@ class StudentController extends Controller
             'name' => 'required|string',
             'email' => 'required|email|unique:students,email',
             'mobile' => 'required|string|unique:students,mobile',
+            'class' => 'required|integer',
             'from' => 'nullable|string',
             'realistic_score' => 'nullable|integer',
             'investigative_score' => 'nullable|integer',
@@ -210,6 +211,7 @@ class StudentController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'mobile' => $request->mobile,
+                'class' => $request->class,
                 'from' => $request->from,
             ]);
             $student->save();

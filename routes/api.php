@@ -27,7 +27,7 @@ Route::group(['prefix' => 'students', 'middleware' => ['api']], function () {
     Route::post('/request-magic-link', [StudentController::class, 'requestMagicLink']);
 
     Route::post('/loginwithmagiclink', [StudentController::class, 'magicLinkLoginPostMethod']);
-
+ 
     // Without Authantication start
     Route::post('/getallstreams', [StudentController::class, 'getAllStreams']);
     Route::post('/getalllevels', [StudentController::class, 'getAllLevels']);

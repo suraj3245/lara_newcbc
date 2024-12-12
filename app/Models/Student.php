@@ -14,7 +14,7 @@ class Student extends Authenticatable
 {
     use HasApiTokens, Notifiable;
 
-    protected $fillable = ['name', 'email', 'password', 'from', 'mobile', 'api_token'];
+    protected $fillable = ['name', 'class', 'email', 'password', 'from', 'mobile', 'api_token'];
 
     public function careerTestResult()
     {
