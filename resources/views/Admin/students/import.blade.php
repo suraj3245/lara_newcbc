@@ -35,7 +35,6 @@
                     <form action="{{ url('/admin/students/import') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
-                      
                         <div class="form-group mb-3 col-md-6 ">
                             <label for="file">Choose Excel File:</label>
                             <input type="file" name="file" id="file" class="form-control mt-2" accept=".xlsx, .csv">
