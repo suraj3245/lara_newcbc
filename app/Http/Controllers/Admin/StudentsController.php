@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Str;
 
-
 class StudentsController extends Controller
 {
     /**
@@ -40,13 +39,12 @@ class StudentsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
             'email' => 'nullable|email|unique:students,email',
-            'mobile' => 'nullable|string',
+            'mobile' => 'nullable',
             'class' => 'nullable',
             'from' => 'nullable|string',
             'realistic_score' => 'required|integer',
@@ -244,8 +242,6 @@ class StudentsController extends Controller
 
         ]);
         session()->forget('validationErrors');
-
-
         $import = new StudentsAndTestResultsImport();
         // Excel::import($import, $request->file('file'));
         // Import student details
@@ -258,9 +254,6 @@ class StudentsController extends Controller
         }
 
         // Import career test results
-
-
-
 
         return redirect()->route('students.index')->with('success', 'Users imported successfully.');
     }
