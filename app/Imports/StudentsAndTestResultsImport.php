@@ -16,7 +16,6 @@ use Illuminate\Support\Str;
 class StudentsAndTestResultsImport implements ToModel, WithHeadingRow
 {
     public $validationErrors = [];
-
     public function model(array $row)
     {
         try {
@@ -26,7 +25,7 @@ class StudentsAndTestResultsImport implements ToModel, WithHeadingRow
                 'name' => 'required|string',
                 'email' => 'nullable|email|unique:students,email',
                 'mobile' => 'nullable|numeric',
-                'class' => 'nullable',
+                'class' => 'nullable|string',
                 'place' => 'nullable',
                 // Add more validation rules as needed
             ]);
